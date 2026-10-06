@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: fabric-cutting-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: fabric_cutting
+      POSTGRES_USER: fabric
+      POSTGRES_PASSWORD: fabric123
+    ports:
+      - "5432:5432"
+    volumes:
+      - fabric_cutting_pgdata:/var/lib/postgresql/data
+
+volumes:
+  fabric_cutting_pgdata:
